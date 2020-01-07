@@ -69,8 +69,8 @@ def bpm_detector(data,fs):
     cD_sum = []
     levels = 4
     max_decimation = 2**(levels-1);
-    min_ndx = 60./ 220 * (fs/max_decimation)
-    max_ndx = 60./ 40 * (fs/max_decimation)
+    min_ndx = int(60./ 220 * (fs/max_decimation))
+    max_ndx = int(60./ 40 * (fs/max_decimation))
     
     for loop in range(0,levels):
         cD = []
@@ -163,5 +163,4 @@ if __name__ == '__main__':
     n = range(0,len(correl))
     plt.plot(n,abs(correl)); 
     plt.show(False); #plot non-blocking
-    time.sleep(10);
     plt.close();
